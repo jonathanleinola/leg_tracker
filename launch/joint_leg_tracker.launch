@@ -3,12 +3,14 @@
   <!-- params -->
   <param name="forest_file" value="$(find leg_tracker)/config/trained_leg_detector_res=0.33.yaml" />
   <param name="scan_topic" value="/scan" />
-  <param name="fixed_frame" value="/base_link"/>
+  <param name="fixed_frame" value="base_link"/>
   <param name="scan_frequency" value="10"/>  
   
   
   <!-- run detect_leg_clusters -->  
   <node pkg="leg_tracker" type="detect_leg_clusters" name="detect_leg_clusters" output="screen"/>
+  <param name="detection_threshold" type="double" value="0.30"/>
+  <param name="cluster_dist_euclid" type="double" value="0.20"/>
 
   <!-- run joint_leg_tracker -->
   <node pkg="leg_tracker" type="joint_leg_tracker.py" name="joint_leg_tracker" output="screen"/>
