@@ -154,8 +154,8 @@ public:
     int sample_size = train_pos_data_.size() + train_neg_data_.size();
     feat_count_ = train_pos_data_[0].size();
 
-    cv::Mat cv_data(sample_size, feat_count_, CV_32F);
-    cv::Mat cv_resp(sample_size, 1, CV_32S);
+    cv::Mat cv_data = cv::Mat(sample_size, feat_count_, CV_32F);
+    cv::Mat cv_resp = cv::Mat(sample_size, 1, CV_32S);
 
     // Put positive data in opencv format.
     int j = 0;
@@ -237,7 +237,7 @@ public:
     int correct_pos = 0;
     int correct_neg = 0;
 
-    cv::Mat tmp_mat(1, feat_count_, CV_32F);
+    cv::Mat tmp_mat = cv::Mat(1, feat_count_, CV_32F);
 
     // test on positive examples
     for (std::vector< std::vector<float> >::const_iterator i = pos_data.begin();
