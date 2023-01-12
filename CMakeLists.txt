@@ -21,7 +21,7 @@ find_package(catkin REQUIRED COMPONENTS
   message_generation
 )
 
-find_package(OpenCV 4 REQUIRED)
+find_package(OpenCV 4.2.0 REQUIRED)
 
 add_message_files(
   FILES
@@ -93,6 +93,7 @@ add_executable(
 target_link_libraries(
   train_leg_detector
   ${catkin_LIBRARIES}
+  ${OpenCV_LIBS}
 )
 
 add_dependencies(local_occupancy_grid_mapping ${PROJECT_NAME}_generate_messages_cpp)
